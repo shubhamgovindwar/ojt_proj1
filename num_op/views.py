@@ -42,7 +42,7 @@ def amstrong_num(request):
         if int(s)==sum:
             return render(request,"num_op/amstrong/amstrong_output.html",context)
         else:
-            return HttpResponse(f"{s} is not equals to {sum} tahts why its NOT amstrong number")
+            return HttpResponse(f"{s} is not equals to the prevoious {sum} tahts why its NOT amstrong number")
         
     else:
         return render(request,"num_op/amstrong/amstrong_input.html")
