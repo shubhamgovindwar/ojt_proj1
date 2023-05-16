@@ -51,16 +51,23 @@ def amstrong_num(request):
 def num_pallindrome(request):
     if request.method=="POST":
         s=request.POST.get("num")
-        s1=int(s)
+        s1=eval(s)
+        print(type(s1))
         sum=0
         while s1>=1:
             rem=s1%10
             s1=s1//10
             sum=sum*10+rem
         
-        context={"input_number":int(s),"output_number":sum}
+        context1={"input_number":int(s),"output_number":sum,"massage":"it is pallindrome"}
+        context2={"input_number":int(s),"output_number":sum,"massage":"it is pallindrome"}
 
-        return render(request,"num_op/pallindrome/pal_output.html",context)
+        if s==sum:
+
+            return render(request,"num_op/pallindrome/pal_output.html",context1)
+        else:
+            return render(request,"num_op/pallindrome/pal_output.html",context2)
+
     else:
         return render(request,"num_op/pallindrome/pal_input.html")
     
